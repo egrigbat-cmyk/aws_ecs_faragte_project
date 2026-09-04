@@ -1,0 +1,29 @@
+services:
+  api:
+    build: .
+    container_name: fargate-api
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: appuser
+      DB_PASSWORD: apppassword
+      DB_NAME: fargatedb
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    container_name: fargate-postgres
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppassword
+      POSTGRES_DB: fargatedb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
