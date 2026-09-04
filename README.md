@@ -64,3 +64,6 @@ GitHub Actions automates the deployment workflow:
 ## Learning Outcome
 
 This project provided hands-on experience combining containerization, AWS networking, ECS Fargate, infrastructure as code, database connectivity, and CI/CD automation into a single DevOps workflow.
+
+## ARCHITECTURE
+![AWS FARGATE Architecture](fargatepj.png)
